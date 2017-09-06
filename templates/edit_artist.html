@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <form action='{{url_for(' editArtist ', genre_id = genre_id, artist_id = i.id)}}' method='post'>
+
+        <p>Name:</p>
+        <input type='text' size='30' name='name' placeholder='{{i.name}}'>
+        <p>Bio:</p>
+        <input type='text' size='30' name='bio' placeholder='{{i.bio}}'>
+        <p>Album:</p>
+        <input type='text' size='30' name='album' placeholder='{{i.album}}'>
+        <p>Release Year:
+            <p>
+                <input type='text' size='30' name='release_year' placeholder='{{i.release_year}}'>
+                <input type='submit' value='Edit'>
+    </form>
+    <a href='{{url_for(' genrelist ', genre_id = i.genre_id )}}'>Cancel</a>
+</body>
+
+</html>

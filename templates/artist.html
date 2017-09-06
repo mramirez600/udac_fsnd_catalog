@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <h1>{{genre.name}}</h1>
+
+    <a href='{{url_for(' newArtist ', genre_id = genre.id )}}'>Create New Artist</a>
+
+    <!--MESSAGE FLASHING EXAMPLE -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+        <li><strong>{{message}}</strong></li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% for i in items %}
+
+    <div>
+
+        <a href='{{url_for(' detailArtist ', genre_id = genre.id, artist_id = i.id)}}'>{{i.name}} </a>
+
+
+
+    </div>
+
+
+    {% endfor %}
+</body>
+
+</html>

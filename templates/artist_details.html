@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h2>{{i.name}}</h2>
+
+    <p>{{i.bio}}</p>
+
+    <p> {{i.album}} </p>
+    <p>{{i.release_year}}</p>
+    </br>
+    <a href='{{url_for(' genrelist ', genre_id = i.genre_id )}}'>Cancel</a>
+    </br>
+    <a href='{{url_for(' editArtist ', genre_id = i.genre.id, artist_id = i.id) }}'>Edit</a>
+
+    </br>
+    <a href='{{url_for(' deleteArtist ', genre_id = i.genre.id, artist_id = i.id) }}'>Delete</a>
+</body>
+
+</html>
