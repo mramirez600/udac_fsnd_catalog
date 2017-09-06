@@ -276,7 +276,7 @@ def deleteGenre(genre_id):
 
 
 #@app.route('/')
-@app.route('/genre/<int:genre_id>/')
+@app.route('/genre/<int:genre_id>/artists/')
 def genrelist(genre_id):
     genre = session.query(Genre).filter_by(id=genre_id).one()
     creator = getUserInfo(genre.user_id)
@@ -286,7 +286,7 @@ def genrelist(genre_id):
     else:
         return render_template('artist.html', genre=genre, items = items, creator=creator)
 
-@app.route('/genre/<int:genre_id>/<int:artist_id>/detail/', methods=['GET', 'POST'])
+@app.route('/genre/<int:genre_id>/artists/<int:artist_id>/details/', methods=['GET', 'POST'])
 def detailArtist(genre_id, artist_id):
     details = session.query(Artist).filter_by(id=artist_id).one()
     return render_template('artist_details.html', genre_id = genre_id, artist_id = artist_id, i = details)
@@ -325,7 +325,7 @@ def editArtist(genre_id, artist_id):
         if request.form['release_year']:
             editedArtist.release_year = request.form['release_year']
         if request.form['wikiLink']:
-            editedArtist.release_year = request.form['wikiLink']
+            editedArtist.wikiLink = request.form['wikiLink']
         session.add(editedArtist)
         session.commit()
         flash('artist has been edited')

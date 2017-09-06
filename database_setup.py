@@ -66,17 +66,3 @@ engine = create_engine('sqlite:///musicartistsv2.db')
 
 
 Base.metadata.create_all(engine)
-
-"""
-from flask import Flask, render_template, request, redirect, jsonify, url_for
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Genre, Artist
-
-app = Flask(__name__)
-
-engine = create_engine('sqlite:///musicartists.db')
-Base.metadata.bind = engine
-
-DBSession = sessionmaker(bind=engine)
-session = DBSession()"""

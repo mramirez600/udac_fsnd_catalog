@@ -11,7 +11,7 @@
 
     <p> {{i.album}} </p>
     <p>{{i.release_year}}</p>
-    <p>{{i.albumImg}}</p>
+    <img src="{{i.albumImg}}" style="height: 200px;">
     <p>{{i.wikiLink}}</p>
     </br>
     <a href='{{url_for('genrelist', genre_id = i.genre_id )}}'>Cancel</a>
