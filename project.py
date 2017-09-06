@@ -297,10 +297,13 @@ def detailArtist(genre_id, artist_id):
 def newArtist(genre_id):
     if 'username' not in login_session:
         return redirect('/login')
+    currentGenre = session.query(Genre).filter_by(id=genre_id).one()
+    if login_session['user_id'] != currentGenre.user_id:
+        return "<script>function myFunction() {alert('You are not authorized to add menu items to this restaurant. Please create your own restaurant in order to add items.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         newAct = Artist(name=request.form['name'], bio=request.form['bio'], album=request.form['album'], 
         albumImg=request.form['albumImg'], wikiLink=request.form['wikiLink'], release_year=request.form['release_year'], 
-        genre_id=genre_id)
+        genre_id=genre_id, user_id=currentGenre.user_id)
         session.add(newAct)
         session.commit()
         flash('new artist created')
@@ -313,6 +316,8 @@ def editArtist(genre_id, artist_id):
     editedArtist = session.query(Artist).filter_by(id = artist_id).one()
     if 'username' not in login_session:
         return redirect('/login')
+    if login_session['user_id'] != editedArtist.user_id:
+        return "<script>function myFunction() {alert('You are not authorized to edit menu items to this restaurant. Please create your own restaurant in order to edit items.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         if request.form['name']:
             editedArtist.name = request.form['name']
@@ -336,9 +341,12 @@ def editArtist(genre_id, artist_id):
 
 @app.route('/genre/<int:genre_id>/<int:artist_id>/delete/', methods=['GET', 'POST'])
 def deleteArtist(genre_id, artist_id):
-    delArtist = session.query(Artist).filter_by(id=artist_id).one()
+    
     if 'username' not in login_session:
         return redirect('/login')
+    delArtist = session.query(Artist).filter_by(id=artist_id).one()
+    if login_session['user_id'] != delArtist.user_id:
+        return "<script>function myFunction() {alert('You are not authorized to delete menu items to this restaurant. Please create your own restaurant in order to delete items.');}</script><body onload='myFunction()''>"
     if request.method == 'POST':
         session.delete(delArtist)
         session.commit()
