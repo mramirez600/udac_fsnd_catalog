@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <form action='{{url_for(' editArtist ', genre_id = genre_id, artist_id = i.id)}}' method='post'>
+    <form action='{{url_for('editArtist', genre_id = genre_id, artist_id = i.id)}}' method='post'>
 
         <p>Name:</p>
         <input type='text' size='30' name='name' placeholder='{{i.name}}'>
@@ -16,9 +16,18 @@
         <p>Release Year:
             <p>
                 <input type='text' size='30' name='release_year' placeholder='{{i.release_year}}'>
+                <p>Album Cover:
+                    <p>
+                        <input type='text' size='30' name='albumImg' placeholder='{{i.albumImg}}'>
+
+                        <p>WikiLink:
+                            <p>
+                                <input type='text' size='30' name='wikiLink' placeholder='{{i.wikiLink}}'>
+
+
                 <input type='submit' value='Edit'>
     </form>
-    <a href='{{url_for(' genrelist ', genre_id = i.genre_id )}}'>Cancel</a>
+    <a href='{{url_for('genrelist', genre_id = i.genre_id )}}'>Cancel</a>
 </body>
 
 </html>
