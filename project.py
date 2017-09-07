@@ -2,12 +2,9 @@ from flask import Flask, render_template, request, redirect, jsonify, url_for, f
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Genre, Artist, User
-
-# New imports for this step
 from flask import session as login_session
 import random
 import string
-
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
@@ -289,7 +286,10 @@ def genrelist(genre_id):
 @app.route('/genre/<int:genre_id>/artists/<int:artist_id>/details/', methods=['GET', 'POST'])
 def detailArtist(genre_id, artist_id):
     details = session.query(Artist).filter_by(id=artist_id).one()
-    return render_template('artist_details.html', genre_id = genre_id, artist_id = artist_id, i = details)
+    if 'username' not in login_session:
+        return render_template('artist_public_details.html', genre_id = genre_id, artist_id = artist_id, i = details)
+    else:
+        return render_template('artist_details.html', genre_id = genre_id, artist_id = artist_id, i = details)
 
 
 

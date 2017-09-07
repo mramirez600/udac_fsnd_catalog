@@ -36,10 +36,11 @@ h3 {
  	line-height: 24px;
  }
 
- a {
+ a:link {
  	font-size: 14px;
  	color: #0093B9;
- 	line-height: 17px;
+	 line-height: 17px;
+	 text-decoration: none !important;
  }
 .padding-top {
 	padding-top: 30px;
@@ -119,7 +120,7 @@ h3 {
  .restaurant-list {
  	background-color: #F0F0F0;
  	padding: 20px;
-u }
+}
  .restaurant-list:hover {
  	background-color: #e1e17f;
  	padding: 20px;
@@ -162,7 +163,7 @@ u }
 
 }
 
-
-164684675643-supifc345rvp7cll8c5t076i51g8f124.apps.googleusercontent.com
-
-NAeXCy_kvTZm8JqoLDJVH0eG
+.access {
+	width: 500px; 
+	margin: 0 auto;
+}

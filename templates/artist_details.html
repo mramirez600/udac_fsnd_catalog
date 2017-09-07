@@ -5,14 +5,17 @@
 </head>
 
 <body>
-    <h2>{{i.name}}</h2>
-
-    <p>{{i.bio}}</p>
-
-    <p> {{i.album}} </p>
-    <p>{{i.release_year}}</p>
-    <img src="{{i.albumImg}}" style="height: 200px;">
-    <p>{{i.wikiLink}}</p>
+        <h2>{{i.name}}</h2>
+        
+            <img src="{{i.albumImg}}" style="height: 200px;">
+            
+            <p>{{i.release_year}} - {{i.album}} </p>
+            
+            <p>{{i.bio}}</p>
+            
+            
+            <p>Wikilink: <a href="{{i.wikiLink}}">Click here for more details...</a></p> 
+            
     </br>
     <a href='{{url_for('genrelist', genre_id = i.genre_id )}}'>Cancel</a>
     </br>

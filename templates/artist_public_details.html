@@ -1,0 +1,21 @@
+<html>
+        
+        <head>
+            <link rel=stylesheet type=text/css href='{{ url_for('static', filename='styles.css') }}'>
+        </head>
+        
+        <body>
+            <h2>{{i.name}}</h2>
+        
+            <img src="{{i.albumImg}}" style="height: 200px;">
+            
+            <p>{{i.release_year}} - {{i.album}} </p>
+            
+            <p>{{i.bio}}</p>
+            
+            
+            <a href="{{i.wikiLink}}">Click here for more details...</a>
+            
+        </body>
+        
+        </html>

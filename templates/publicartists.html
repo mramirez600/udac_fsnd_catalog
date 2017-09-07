@@ -41,14 +41,19 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-12">
 				<h2>Artists</h2>
+				<div class="row">
 					{% for i in items %}
-							<div class="menu-item">
+
+							<div class="menu-item col col-sm-3">
 								<h3>{{i.name}}</h3>
 								<img src="{{i.albumImg}}" style="height: 100px;">
+							</br>
+								<a href='{{url_for('detailArtist', genre_id = genre.id, artist_id = i.id)}}'>Artist Details</a>
 								
 								
 							</div>
 					{% endfor %}
+						</div>
 			</div>
 
 			<div class="col-md-1"></div>
