@@ -1,6 +1,8 @@
 # Music Catalog
 ---
 ### Project Description
+Developed a content management system using the Flask framework in Python. Authentication is provided via OAuth and all data is stored within a PostgreSQL database.
+---
 This web application provides a list of items within a variety of categories and integrates third party user registration and authentication. Authenticated users should have the ability to post, edit, and delete their own items.
 
 ### Running the Application
