@@ -188,7 +188,6 @@ def genreArtistJSON(genre_id):
         genre_id = genre.id).all()
     return jsonify(Artist=[i.serialize for i in items])
 
-# ADD JSON ENDPOINT HERE
 @app.route('/genre/<int:genre_id>/artists/<int:artist_id>/JSON')
 def artistJSON(genre_id, artist_id):
     artistListed = session.query(Artist).filter_by(id=artist_id).one()
