@@ -4,31 +4,25 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
-<body>
-    <form action='{{url_for('editArtist', genre_id = genre_id, artist_id = i.id)}}' method='post'>
+    <body>
+        <form action='{{url_for('editArtist', genre_id = genre_id, artist_id = i.id)}}' method='post'>
 
-        <p>Name:</p>
-        <input type='text' size='30' name='name' placeholder='{{i.name}}'>
-        <p>Bio:</p>
-        <textarea rows="6" cols="50" type='text' size='30' name='bio' placeholder='{{i.bio}}'></textarea>
-        
-        <p>Album:</p>
-        <input type='text' size='30' name='album' placeholder='{{i.album}}'>
-        <p>Release Year:
-            <p>
-                <input type='text' size='30' name='release_year' placeholder='{{i.release_year}}'>
-                <p>Album Cover:
-                    <p>
-                        <input type='text' size='30' name='albumImg' placeholder='{{i.albumImg}}'>
-
-                        <p>WikiLink:
-                            <p>
-                                <input type='text' size='30' name='wikiLink' placeholder='{{i.wikiLink}}'>
-
-
-                <input type='submit' value='Edit'>
-    </form>
-    <a href='{{url_for('genrelist', genre_id = i.genre_id )}}'>Cancel</a>
-</body>
+            <p>Name:</p>
+            <input type='text' size='30' name='name' placeholder='{{i.name}}'>
+            <p>Bio:</p>
+            <textarea rows="6" cols="50" type='text' size='30' name='bio' placeholder='{{i.bio}}'></textarea>
+            
+            <p>Album:</p>
+            <input type='text' size='30' name='album' placeholder='{{i.album}}'>
+            <p>Release Year:<p>
+            <input type='text' size='30' name='release_year' placeholder='{{i.release_year}}'>
+            <p>Album Cover:<p>
+            <input type='text' size='30' name='albumImg' placeholder='{{i.albumImg}}'>
+            <p>WikiLink:<p>
+            <input type='text' size='30' name='wikiLink' placeholder='{{i.wikiLink}}'>
+            <input type='submit' value='Edit'>
+        </form>
+        <a href='{{url_for('genrelist', genre_id = i.genre_id )}}'>Cancel</a>
+    </body>
 
 </html>
