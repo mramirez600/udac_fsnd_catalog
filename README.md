@@ -25,10 +25,17 @@ This web application provides a list of items within a variety of categories and
     * http://localhost:5000/genre/2/artists/JSON - all artists in selected genre
 
 i. The IP address and SSH port so your server can be accessed by the reviewer.
+
 - IP address: 209.182.216.21 Port: 2200
+- place the ssh key in ~/.sshe
+- access server ssh grader@209.182.216.21 -p 2200 -i ~/.ssh/linuxCourse
+
 ii. The complete URL to your hosted web application.
+
 - http://209.182.216.21/
+
 iii. A summary of software you installed and configuration changes made.
+
 * added new user with required security changes - grader
 * generated ssh key pairs
 * configured firewall settings
@@ -36,6 +43,7 @@ iii. A summary of software you installed and configuration changes made.
 
 
 Installed following:
+
 * sudo dpkg-reconfigure tzdata
 * sudo apt-get install python-psycopg2
 * sudo apt-get install postgresql
@@ -51,5 +59,6 @@ Installed following:
 
 
 iv. A list of any third-party resources you made use of to complete this project.
+
 - https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
