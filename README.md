@@ -24,3 +24,32 @@ This web application provides a list of items within a variety of categories and
     * http://localhost:5000/genre/1/artists/4/JSON - artist details
     * http://localhost:5000/genre/2/artists/JSON - all artists in selected genre
 
+i. The IP address and SSH port so your server can be accessed by the reviewer.
+- IP address: 209.182.216.21 Port: 2200
+ii. The complete URL to your hosted web application.
+- http://209.182.216.21/
+iii. A summary of software you installed and configuration changes made.
+* added new user with required security changes - grader
+* generated ssh key pairs
+* configured firewall settings
+* configured PostreSQL
+
+
+Installed following:
+* sudo dpkg-reconfigure tzdata
+* sudo apt-get install python-psycopg2
+* sudo apt-get install postgresql
+* sudo apt-get install python-pip
+* sudo apt-get install python-flask
+* sudo apt-get install python-sqlalchemy
+* sudo pip install flask
+* sudo pip install httplib2
+* sudo pip install requests
+* sudo pip install oauth2client
+* sudo apt-get install git
+
+
+
+iv. A list of any third-party resources you made use of to complete this project.
+- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
