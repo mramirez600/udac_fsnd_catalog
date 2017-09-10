@@ -27,7 +27,7 @@ This web application provides a list of items within a variety of categories and
 i. The IP address and SSH port so your server can be accessed by the reviewer.
 
 - IP address: 209.182.216.21 Port: 2200
-- place the ssh key in ~/.sshe
+- place the ssh key in folder ~/.ssh
 - access server ssh grader@209.182.216.21 -p 2200 -i ~/.ssh/linuxCourse
 
 ii. The complete URL to your hosted web application.
