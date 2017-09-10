@@ -13,7 +13,7 @@ import json
 from flask import make_response
 import requests
 
-engine = create_engine('sqlite:///musicartistsv2.db')
+engine = create_engine('postgresql://grader:default@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -23,8 +23,8 @@ session = DBSession()
 app = Flask(__name__)
 
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
-APPLICATION_NAME = "Restaurant Menu Application"
+    open('/var/www/udac_fsnd_catalog/client_secrets.json', 'r').read())['web']['client_id']
+APPLICATION_NAME = "Music Catalog"
 
 
 # Create anti-forgery state token
@@ -49,7 +49,7 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/udac_fsnd_catalog/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -286,8 +286,7 @@ def genrelist(genre_id):
     genre = session.query(Genre).filter_by(id=genre_id).one()
     creator = getUserInfo(genre.user_id)
     items = session.query(Artist).filter_by(genre_id=genre.id)
-    if 'username' not in login_session
-    or creator.id != login_session['user_id']:
+    if 'username' not in login_session or creator.id != login_session['user_id']:
         return render_template(
             'publicartists.html',
             items=items, genre=genre, creator=creator)

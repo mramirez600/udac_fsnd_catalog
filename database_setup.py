@@ -62,7 +62,7 @@ class Artist(Base):
             }
 
 
-engine = create_engine('sqlite:///musicartistsv2.db')
+engine = create_engine('postgresql://grader:default@localhost/catalog')
 
 
 Base.metadata.create_all(engine)
